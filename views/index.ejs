@@ -4,44 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Rotas</title>
-    <style>
-        body {
-            font-family: sans-serif;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(100, 15px);
-            grid-template-rows: repeat(100, 15px);
-            gap: 1px;
-            margin: 20px auto;
-            width: max-content;
-        }
-
-        .cell {
-            width: 15px;
-            height: 15px;
-            border: 1px solid #444;
-            font-size: 8px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #555;
-            cursor: pointer;
-        }
-
-        .cell.active {
-            background: limegreen !important;
-        }
-
-        .cell.trigger {
-            background: orange !important;
-        }
-
-        .cell.selected {
-            background: blue;
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
