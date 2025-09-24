@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Rotas</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(100, 15px);
+            grid-template-rows: repeat(100, 15px);
+            gap: 1px;
+            margin: 20px auto;
+            width: max-content;
+        }
+
+        .cell {
+            width: 15px;
+            height: 15px;
+            border: 1px solid #444;
+            font-size: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #555;
+            cursor: pointer;
+        }
+
+        .cell.active {
+            background: limegreen !important;
+        }
+
+        .cell.trigger {
+            background: orange !important;
+        }
+
+        .cell.selected {
+            background: blue;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Rotas</h1>
+
+    <label>
+        Número inicial:
+        <input type="number" id="startInput" min="1" max="10000" value="1">
+    </label>
+    <button onclick="setStart()">Definir Início</button>
+    <br><br>
+
+    <label>
+        Direção inicial:
+        <select id="startDir">
+            <option value="right">→ Direita</option>
+            <option value="left">← Esquerda</option>
+            <option value="up">↑ Cima</option>
+            <option value="down">↓ Baixo</option>
+        </select>
+    </label>
+    <br><br>
+
+    <label>
+        Selecione números (1–10000, separados por vírgula):
+        <input type="text" id="numbersInput" placeholder="Ex: 5,10,250">
+    </label>
+
+    <label>
+        Evento:
+        <select id="eventSelect">
+            <option value="right">Virar à direita</option>
+            <option value="left">Virar à esquerda</option>
+            <option value="up">Virar para cima</option>
+            <option value="down">Virar para baixo</option>
+            <option value="back">Voltar</option>
+        </select>
+    </label>
+    <button id="applyBtn">Aplicar</button>
+    <button id="clearBtn">Limpar Seleção</button>
+    <br><br>
+    <label>
+        Salvar seleção como:
+        <input type="text" id="saveName" placeholder="Digite o nome">
+    </label>
+    <button id="saveBtn">💾 Salvar Seleção</button>
+    <br><br>
+
+    <label>
+        Seleção salva:
+        <select id="savedSelect">
+            <option value="">-- Selecione --</option>
+        </select>
+        <button onclick="loadSaved()">Carregar</button>
+    </label>
+    <br><br>
+    <button onclick="toggleAnimation()">▶️ Iniciar / ⏸️ Pausar</button>
+
+    <button onclick="stopAnimation()">⏹️ Parar</button>
+
+    <div class="grid" id="grid"></div>
+
+    <script src="/scripts/grid.js"></script>
+    <script src="/scripts/selections.js"></script>
+</body>
+
+</html>

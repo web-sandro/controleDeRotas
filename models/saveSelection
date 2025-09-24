@@ -1,0 +1,9 @@
+const values = items.map(i => [selectionId, i.num, i.event]);
+if(values.length>0){
+    await conn.query(
+        'INSERT INTO selection_items (selection_id,num,event) VALUES ' +
+        values.map(()=>'(?,?,?)').join(','),
+        values.flat()
+        
+    );
+}
