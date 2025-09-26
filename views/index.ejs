@@ -2,82 +2,98 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Rotas</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Rotas</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-    <header>
-        <h4>Rotas</h4>
-        <div class="controles">
-            <label>
-                <h4>Número inicial:</h4>
-                <input type="number" id="startInput" min="1" max="10000" value="1">
-            </label>
+  <header>
+    <h4>Rotas</h4>
+    <div class="controles">
+      <label>
+        <h4>Número inicial:</h4>
+        <input type="number" id="startInput" min="1" max="10000" value="1">
+      </label>
 
-            <label>
-                <h4>Direção inicial:</h4>
-                <select id="startDir">
-                    <option value="right">→ Direita</option>
-                    <option value="left">← Esquerda</option>
-                    <option value="up">↑ Cima</option>
-                    <option value="down">↓ Baixo</option>
-                </select>
-            </label>
-            <button onclick="setStart()">Definir Início</button>
-        </div>
-        <br>
-        <div class="controles-1">
-            <label>
-                <h4>Selecione números:</h4>
-                <input type="text" id="numbersInput" placeholder="Ex: 5,10,250">
-            </label>
-            <label>
-                <h4>Evento:</h4>
-                <select id="eventSelect">
-                    <option value="right">Virar à direita</option>
-                    <option value="left">Virar à esquerda</option>
-                    <option value="up">Virar para cima</option>
-                    <option value="down">Virar para baixo</option>
-                    <option value="back">Voltar</option>
-                </select>
-            </label>
-            <button id="applyBtn">Aplicar</button>
-            <button id="clearBtn">Limpar Seleção</button>
-        </div>
-        <br>
-        <div class="controles-2">
-            <label>
-                <h4>Salvar seleção como:</h4>
-                <input type="text" id="saveName" placeholder="Digite o nome">
-            </label>
-            <button id="saveBtn">💾 Salvar Seleção</button>
-            <br>
-        </div>
-        <br>
-        <div class="controles-3">
-            <label>
-                <h4>Seleção salva:</h4>
-                <select id="savedSelect">
-                    <option value="">-- Selecione --</option>
-                </select>
-                <button onclick="loadSaved()">Carregar</button>
-            </label>
-        </div>
-        <br>
-        <div class="controles-4">
-            <button onclick="toggleAnimation()">▶️ Iniciar / ⏸️ Pausar</button>
+      <label>
+        <h4>Direção inicial:</h4>
+        <select id="startDir">
+          <option value="right">→ Direita</option>
+          <option value="left">← Esquerda</option>
+          <option value="up">↑ Cima</option>
+          <option value="down">↓ Baixo</option>
+        </select>
+      </label>
+      <button onclick="setStart()">Definir Início</button>
+    </div>
+    <br>
 
-            <button onclick="stopAnimation()">⏹️ Parar</button>
-        </div>
-    </header>
+    <div class="controles-1">
+      <label>
+        <h4>Selecione números:</h4>
+        <input type="text" id="numbersInput" placeholder="Ex: 5,10,250">
+      </label>
+      <label>
+        <h4>Evento:</h4>
+        <select id="eventSelect">
+          <option value="right">Virar à direita</option>
+          <option value="left">Virar à esquerda</option>
+          <option value="up">Virar para cima</option>
+          <option value="down">Virar para baixo</option>
+          <option value="downRight">↘ Diagonal Baixo/Direita</option>
+          <option value="downLeft">↙ Diagonal Baixo/Esquerda</option>
+          <option value="upLeft">↖ Diagonal Cima/Esquerda</option>
+          <option value="upRight">↗ Diagonal Cima/Direita</option>
+          <option value="back">Voltar</option>
+        </select>
+      </label>
+      <button id="applyBtn">Aplicar</button>
+      <button id="clearBtn">Limpar Seleção</button>
+    </div>
+    <br>
 
-    <div class="grid" id="grid"></div>
+    <div class="controles-2">
+      <label>
+        <h4>Salvar seleção como:</h4>
+        <input type="text" id="saveName" placeholder="Digite o nome">
+      </label>
+      <button id="saveBtn">💾 Salvar Seleção</button>
+    </div>
+    <br>
 
-    <script src="/scripts/grid.js"></script>
-    <script src="/scripts/selections.js"></script>
+    <div class="controles-3">
+      <label>
+        <h4>Seleção salva:</h4>
+        <select id="savedSelect">
+          <option value="">-- Selecione --</option>
+        </select>
+        <button onclick="loadSaved()">Carregar</button>
+      </label>
+    </div>
+    <br>
+
+    <div class="controles-4">
+      <button onclick="toggleAnimation()">▶️ Iniciar / ⏸️ Pausar</button>
+      <button onclick="stopAnimation()">⏹️ Parar</button>
+      <button onclick="increaseSpeed()">➕ Velocidade</button>
+      <button onclick="decreaseSpeed()">➖ Velocidade</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Grid visível no início -->
+    <div id="grid"></div>
+
+    <!-- Imagem oculta até iniciar -->
+    <div id="imageContainer">
+      <img src="/img/mund.png" alt="Mapa" id="mapImage">
+      <canvas id="lightCanvas"></canvas>
+    </div>
+  </div>
+
+  <script src="/scripts/grid.js"></script>
+  <script src="/scripts/selections.js"></script>
 </body>
-
 </html>
