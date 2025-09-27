@@ -154,4 +154,3 @@ function setStart() {
 }
 
 generateGrid();
-    
