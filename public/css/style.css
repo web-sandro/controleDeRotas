@@ -37,7 +37,7 @@ body {
 }
 
 .cell.trigger {
-  background: orange !important;
+  background: rgb(255, 0, 0) !important;
 }
 
 .cell.selected {
